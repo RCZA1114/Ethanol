@@ -47,6 +47,8 @@ filtered_data.loc[filtered_data['Abs'] < ((filtered_data['Abs'].mean()) - (3*(fi
 
 st.write(f" The number of out of control products in 'Abs' is {filtered_data['Abs_lim'].sum()} and  'WL' is {filtered_data['WL_lim'].sum()}.")
 
+ooc = filtered_data[filtered_data['Abs_lim']==1]
+
 
 
 
@@ -63,3 +65,6 @@ fig2 = px.scatter(df, x=x_axis, y=y_axis, title="Chart of the Data (Aggregate)",
 
 st.plotly_chart(fig, use_container_width=True)
 #st.plotly_chart(fig2, use_container_width=True)
+
+st.write("Out of control Values")
+st.dataframe(ooc)
