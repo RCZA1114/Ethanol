@@ -56,7 +56,7 @@ x_axis = st.selectbox('Select X axis',('No.','WL(nm)','Abs'))
 y_axis = st.selectbox('Select Y axis',('No.','WL(nm)','Abs'))
 
 
-fig = px.scatter(filtered_data, x=x_axis, y=y_axis , title="Chart of the Data",)
+fig = px.scatter(filtered_data, x=x_axis, y=y_axis , title="Chart of the Data",color='Batch')
 fig2 = px.scatter(df, x=x_axis, y=y_axis, title="Chart of the Data (Aggregate)",)
 
 
