@@ -50,10 +50,6 @@ filtered_data.loc[filtered_data['Abs'] < ((filtered_data['Abs'].mean()) - (3*(fi
 ooc = filtered_data[filtered_data['Abs_lim']==1]
 
 
-
-
-
-
 x_axis = st.selectbox('Select X axis',('No.','WL(nm)','Abs'))
 
 y_axis = st.selectbox('Select Y axis',('No.','WL(nm)','Abs'))
@@ -66,5 +62,7 @@ fig2 = px.scatter(df, x=x_axis, y=y_axis, title="Chart of the Data (Aggregate)",
 st.plotly_chart(fig, use_container_width=True)
 #st.plotly_chart(fig2, use_container_width=True)
 
-st.write("Out of control Values")
-st.dataframe(ooc)
+## st.write("Out of control Values")
+## st.dataframe(ooc)
+
+print(data.groupby('Batch')['Abs'].sum())
