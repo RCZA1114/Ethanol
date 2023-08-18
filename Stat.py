@@ -14,7 +14,7 @@ data = load_data()
 
 x=df['Abs'].groupby('Batch').mean()
 
-plot_abs = data['Abs].groupby(by = "Batch").mean().plot(kind = "bar")
+plot_abs = x.plot()
 
 
 st.plotly_chart(plot_abs, use_container_width=True)
