@@ -13,7 +13,7 @@ def load_data():
 data = load_data()
 
 
-plot_abs = data.groupby(by = "Abs").mean().plot(kind = "bar")
+plot_abs = data['Abs].groupby(by = "Batch").mean().plot(kind = "bar")
 
 
 st.plotly_chart(plot_abs, use_container_width=True)
