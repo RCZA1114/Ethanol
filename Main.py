@@ -1,6 +1,7 @@
 import streamlit as st
 import plotly.express as px
 import pandas as pd
+import matplotlib as plt
 
 @st.cache_data
 def load_data():
@@ -65,6 +66,6 @@ st.plotly_chart(fig, use_container_width=True)
 ## st.write("Out of control Values")
 ## st.dataframe(ooc)
 
-x = data.groupby('Batch')['Abs'].mean()
+x = data.groupby(['Batch'])['Abs'].mean()
 
-
+x.plot(kind='bar')
