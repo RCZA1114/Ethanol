@@ -65,4 +65,6 @@ st.plotly_chart(fig, use_container_width=True)
 ## st.write("Out of control Values")
 ## st.dataframe(ooc)
 
-print(data.groupby('Batch')['Abs'].sum())
+x = data.groupby('Batch')['Abs'].mean()
+
+
