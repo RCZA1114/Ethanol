@@ -31,7 +31,7 @@ measure = st.selectbox("Select Measurement", ('Mean', 'Standard Deviation'))
 if measure == "Mean":
     wlm =filtered_data['WL(nm)'].mean()
     absm = filtered_data['Abs'].mean()
-    st.write()
+    st.write(f"The Mean of the selected batches for WL(nm) and Abs (respectively) is {wlm}  is {absm}. ")
 elif measure == "Standard Deviation":
     wlm =filtered_data['WL(nm)'].std()
     absm = filtered_data['Abs'].std()
