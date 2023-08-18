@@ -16,7 +16,7 @@ data = load_data()
 df = pd.read_csv("All Data.csv", usecols=['No.','WL(nm)','Abs'])
 batch_id = data['Batch'].unique()
 
-selected_batch = st.multiselect('Select Batch', options = batch_id, default=batch_id))
+selected_batch = st.multiselect('Select Batch', options = batch_id, default=batch_id)
 
 UCLWL = df['WL(nm)'].mean() + (3*df['WL(nm)'].std())
 LCLWL = df['WL(nm)'].mean() - (3*df['WL(nm)'].std())
