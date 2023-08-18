@@ -45,7 +45,7 @@ filtered_data.loc[filtered_data['Abs'] > ((filtered_data['Abs'].mean()) + (3*(fi
 filtered_data.loc[filtered_data['Abs'] < ((filtered_data['Abs'].mean()) - (3*(filtered_data['Abs'].std()))), 'Abs_lim'] = 1
 
 
-#st.write(f" The number of out of control products in 'Abs' is {filtered_data['Abs_lim'].sum()} and  'WL' is {filtered_data['WL_lim'].sum()}.")
+## st.write(f" The number of out of control products in 'Abs' is {filtered_data['Abs_lim'].sum()} and  'WL' is {filtered_data['WL_lim'].sum()}.")
 
 ooc = filtered_data[filtered_data['Abs_lim']==1]
 
