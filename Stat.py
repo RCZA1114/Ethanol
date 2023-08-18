@@ -12,7 +12,7 @@ def load_data():
     
 data = load_data()
 
-x=data['Abs'].groupby('Batch').mean()
+x=data.groupby('Batch')['Abs'].mean()
 
 plot_abs = x.plot()
 
