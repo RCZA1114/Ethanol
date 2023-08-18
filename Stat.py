@@ -12,6 +12,7 @@ def load_data():
     
 data = load_data()
 
+x=df['Abs'].groupby('Batch').mean()
 
 plot_abs = data['Abs].groupby(by = "Batch").mean().plot(kind = "bar")
 
