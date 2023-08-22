@@ -31,7 +31,7 @@ wavelenght = st.slider('Select Wavelenght', value=(0, 800), max_value=800, min_v
 ## filtered_data = data[data['WL(nm)'].isin(wavelenght)]
 
 filtered_data = filtered_data[filtered_data['WL(nm)'].isin(range(wavelenght[0], wavelenght[1]))]
-
+data = data[data['WL(nm)'].isin(range(wavelenght[0], wavelenght[1]))]
 #st.dataframe(filtered_data)
 measure = st.selectbox("Select Measurement", ('Mean', 'Standard Deviation'))
 if measure == "Mean":
