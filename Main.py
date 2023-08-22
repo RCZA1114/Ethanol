@@ -73,4 +73,5 @@ st.plotly_chart(fig2, use_container_width=True)
 
 x = data.groupby(['Batch'])['Abs'].mean()
 
+st.write("Bar Chart of the Batch Means for 'Abs'.")
 st.bar_chart(x, y='Abs')
