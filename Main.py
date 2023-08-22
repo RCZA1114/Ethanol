@@ -14,7 +14,10 @@ st.title("Ethanol Dashboard")
 @st.cache_data
 def load_data():
     data = pd.read_csv("All Data.csv", usecols=['No.','WL(nm)','Abs','Batch'])
-    
+
+    data = data[data['Batch'] != 'Batch 8 (Part 2)']
+
+    data = data.replace({'Batch': {'Batch 8 (Part 1)': 'Batch 8'}})
 
     return data
 
