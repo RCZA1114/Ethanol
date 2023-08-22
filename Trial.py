@@ -15,8 +15,8 @@ data = load_data()
 
 df = pd.read_csv("All Data.csv", usecols=['No.','WL(nm)','Abs'])
 batch_id = data['Batch'].unique()
-
-selected_batch = st.multiselect('Choose batches for Final Batch', options = batch_id, default=batch_id)
+selected_batch = st.selectbox('Select Batch', batch_id)
+selected_batch2 = st.multiselect('Choose batches for Final Batch', options = batch_id, default=batch_id)
 
 UCLWL = df['WL(nm)'].mean() + (3*df['WL(nm)'].std())
 LCLWL = df['WL(nm)'].mean() - (3*df['WL(nm)'].std())
@@ -24,11 +24,11 @@ UCLABS = df['Abs'].mean() + (3*df['Abs'].std())
 LCLABS = df['Abs'].mean() - (3*df['Abs'].std())
 
 
-filtered_data = data[data['Batch'].isin(selected_batch)]
+filtered_data2 = data[data['Batch'].isin(selected_batch2)]
 wavelenght = st.slider('Select Wavelenght', value=(0, 800), max_value=800, min_value=0, key="slider")
 ## filtered_data = data[data['WL(nm)'].isin(wavelenght)]
 
-filtered_data = filtered_data[filtered_data['WL(nm)'].isin(range(wavelenght[0], wavelenght[1]))]
+filtered_data = filtered_data[filtered_data2['WL(nm)'].isin(range(wavelenght[0], wavelenght[1]))]
 #st.dataframe(filtered_data)
 measure = st.selectbox("Select Measurement", ('Mean', 'Standard Deviation'))
 if measure == "Mean":
@@ -59,8 +59,8 @@ x_axis = st.selectbox('Select X axis',('No.','WL(nm)','Abs'))
 y_axis = st.selectbox('Select Y axis',('No.','WL(nm)','Abs'))
 
 
-fig = px.scatter(filtered_data, x=x_axis, y=y_axis , title="Chart of the Data", color='Batch')
-fig2 = px.scatter(df, x=x_axis, y=y_axis, title="Chart of the Data (Aggregate)")
+fig = px.scatter(filtered_data, x=x_axis, y=y_axis , title="Chart of the Data")
+fig2 = px.scatter(df, x=x_axis, y=y_axis, title="Chart of the Data (Aggregate)", color = 'Batch')
 
 
 st.plotly_chart(fig, use_container_width=True)
