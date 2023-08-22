@@ -63,11 +63,11 @@ y_axis = st.selectbox('Select Y axis',('No.','WL(nm)','Abs'))
 
 
 fig = px.scatter(filtered_data, x=x_axis, y=y_axis , title="Chart of the Data")
-fig2 = px.scatter(df, x=x_axis, y=y_axis, title="Chart of the Data (Aggregate)", color = 'Batch')
+fig2 = px.scatter(data, x=x_axis, y=y_axis, title="Chart of the Data (Aggregate)", color = 'Batch')
 
 
 st.plotly_chart(fig, use_container_width=True)
-#st.plotly_chart(fig2, use_container_width=True)
+st.plotly_chart(fig2, use_container_width=True)
 
 ## st.write("Out of control Values")
 ## st.dataframe(ooc)
