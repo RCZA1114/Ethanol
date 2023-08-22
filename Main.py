@@ -3,6 +3,14 @@ import plotly.express as px
 import pandas as pd
 import matplotlib as plt
 
+st.set_page_config(
+    page_title="Pythos Ethanol Data",
+    page_icon=":chart:",
+)
+
+
+st.title("Ethanol Dashboard")
+
 @st.cache_data
 def load_data():
     data = pd.read_csv("All Data.csv", usecols=['No.','WL(nm)','Abs','Batch'])
@@ -33,6 +41,8 @@ wavelenght = st.slider('Select Wavelenght', value=(0, 800), max_value=800, min_v
 filtered_data = filtered_data[filtered_data['WL(nm)'].isin(range(wavelenght[0], wavelenght[1]))]
 data = data[data['WL(nm)'].isin(range(wavelenght[0], wavelenght[1]))]
 #st.dataframe(filtered_data)
+
+"""
 measure = st.selectbox("Select Measurement", ('Mean', 'Standard Deviation'))
 if measure == "Mean":
     wlm =filtered_data['WL(nm)'].mean()
@@ -42,6 +52,8 @@ elif measure == "Standard Deviation":
     wlm =filtered_data['WL(nm)'].std()
     absm = filtered_data['Abs'].std()
     st.write(f"The Standard Deviation of of WL(nm) is {wlm} and Abs is {absm}. ")
+
+"""
 
 filtered_data['WL_lim'] = 0
 filtered_data.loc[filtered_data['WL(nm)'] > ((filtered_data['WL(nm)'].mean()) + (3*(filtered_data['WL(nm)'].std()))), 'WL_lim'] = 1
@@ -62,8 +74,8 @@ x_axis = st.selectbox('Select X axis',('No.','WL(nm)','Abs'))
 y_axis = st.selectbox('Select Y axis',('No.','WL(nm)','Abs'))
 
 
-fig = px.scatter(filtered_data, x=x_axis, y=y_axis , title="Chart of the Data")
-fig2 = px.scatter(data, x=x_axis, y=y_axis, title="Chart of the Data (Aggregate)", color = 'Batch')
+fig = px.scatter(filtered_data, x=x_axis, y=y_axis , title="Chart of the Data (Single Batch)")
+fig2 = px.scatter(data, x=x_axis, y=y_axis, title="Chart of the Data (All Batches)", color = 'Batch')
 
 
 st.plotly_chart(fig, use_container_width=True)
