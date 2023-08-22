@@ -30,7 +30,7 @@ filtered_data = data[data['Batch']==selected_batch]
 wavelenght = st.slider('Select Wavelenght', value=(0, 800), max_value=800, min_value=0, key="slider")
 ## filtered_data = data[data['WL(nm)'].isin(wavelenght)]
 
-filtered_data = filtered_data[filtered_data2['WL(nm)'].isin(range(wavelenght[0], wavelenght[1]))]
+filtered_data = filtered_data[filtered_data['WL(nm)'].isin(range(wavelenght[0], wavelenght[1]))]
 
 #st.dataframe(filtered_data)
 measure = st.selectbox("Select Measurement", ('Mean', 'Standard Deviation'))
