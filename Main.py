@@ -64,8 +64,8 @@ x_axis = st.selectbox('Select X axis',('No.','WL(nm)','Abs'))
 y_axis = st.selectbox('Select Y axis',('No.','WL(nm)','Abs'))
 
 
-fig = px.scatter(filtered_data, x=x_axis, y=y_axis , title=f"Chart of the Data for the selected batches")
-fig2 = px.scatter(filtered_data, x=x_axis, y=y_axis, title="Chart of the Data (All Batches)", color = 'Batch')
+fig = px.scatter(filtered_data, x=x_axis, y=y_axis , title=f"Chart of the Data for the selected batches", color = 'Batch')
+fig2 = px.scatter(data, x=x_axis, y=y_axis, title="Chart of the Data (All Batches)", color = 'Batch')
 
 
 st.plotly_chart(fig, use_container_width=True)
