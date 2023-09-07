@@ -36,7 +36,7 @@ UCLABS = df['Abs'].mean() + (3*df['Abs'].std())
 LCLABS = df['Abs'].mean() - (3*df['Abs'].std())
 
 
-filtered_data = data[data['Batch']==selected_batch]
+filtered_data = data[data['Batch'].isin(selected_batch)]
 
 wavelenght = st.slider('Select Wavelenght', value=(0, 800), max_value=800, min_value=0, key="slider")
 ## filtered_data = data[data['WL(nm)'].isin(wavelenght)]
