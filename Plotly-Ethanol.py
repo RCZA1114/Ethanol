@@ -36,7 +36,7 @@ while True:
         html.H1(children='Ethanol Stuff'),
         measure_x,
         measure_y,
-        dcc.Slider(min=0, max=800, step=5, value=237, marks=None, id='my-slider'),
+        dcc.Slider(min=0, max=800, step=5, value=280, marks=None, id='my-slider'),
         dcc.Graph(id='ethanol-graph'),
     ])
 
