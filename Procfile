@@ -1,1 +1,1 @@
-web: gunicorn Ploty-Ethanol:server
+web: gunicorn Plotly-Ethanol:server
